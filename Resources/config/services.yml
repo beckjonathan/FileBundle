@@ -1,5 +1,5 @@
 parameters:
-    beck_jonathan_file.upload_handler.class: BeckJonathan\FileBundle\Service\UploadHandler
+    beck_jonathan_file.upload_handler.class: BeckJonathan\Bundle\FileBundle\Service\UploadHandler
 
 services:
     beck_jonathan_file.upload_handler:
