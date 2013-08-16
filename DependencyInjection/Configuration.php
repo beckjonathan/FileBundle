@@ -1,6 +1,6 @@
 <?php
 
-namespace BeckJonathan\FileBundle\DependencyInjection;
+namespace BeckJonathan\Bundle\FileBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
