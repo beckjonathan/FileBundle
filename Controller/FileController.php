@@ -1,6 +1,6 @@
 <?php
 
-namespace BeckJonathan\FileBundle\Controller;
+namespace BeckJonathan\Bundle\FileBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
