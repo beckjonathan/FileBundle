@@ -1,0 +1,3 @@
+beck_jonathan_file_upload:
+    pattern:  /file-upload/{fileName}
+    defaults: { _controller: BeckJonathanFileBundle:File:upload, fileName: null }
