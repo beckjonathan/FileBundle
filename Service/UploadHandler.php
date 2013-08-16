@@ -1,6 +1,6 @@
 <?php
 
-namespace BeckJonathan\FileBundle\Service;
+namespace BeckJonathan\Bundle\FileBundle\Service;
 
 class UploadHandler
 {
