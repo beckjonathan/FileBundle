@@ -8,3 +8,6 @@ File bundle for use with Symfony2.
 
 # Don't forget to create a parameter with key: "base_url"
 # in the file "parameters.yml"
+
+
+test
