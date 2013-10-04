@@ -4,6 +4,8 @@ namespace BeckJonathan\Bundle\FileBundle\Service;
 
 class UploadHandler
 {
+	private $maxFiles;
+	
     protected $options;
     // PHP File Upload error message codes:
     // http://php.net/manual/en/features.file-upload.errors.php
@@ -27,15 +29,13 @@ class UploadHandler
     );
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
-        $scriptUrl = $this->get_full_url().'/admin/file-upload/';
-		$uploadDir = dirname($this->get_server_var('SCRIPT_FILENAME')).'/../web/uploads/';
+       	// Get the name of the folder where the files must be stored
+		$fileFolder = $_GET['file_folder'];
+		$scriptUrl = $this->get_full_url().'/admin/file-upload/'.$fileFolder.'/';
+		$uploadDir = dirname($this->get_server_var('SCRIPT_FILENAME')).'/../web/uploads/'.$fileFolder.'/';
 		
-		// Get the name of the folder where the files must be stored
-		if (isset($_GET['file_folder'])) {
-			$fileFolder = $_GET['file_folder'];
-			$scriptUrl .= $fileFolder.'/';
-			$uploadDir .= $fileFolder.'/';
-		}
+		// Add the maxFiles parameter if it exists
+		$this->maxFiles = (isset($_GET['max_files'])) ? (int)$_GET['max_files'] : null;
 		
         $this->options = array(
             'script_url' => $scriptUrl,
@@ -82,7 +82,7 @@ class UploadHandler
             'max_file_size' => null,
             'min_file_size' => 1,
             // The maximum number of files for the upload directory:
-            'max_number_of_files' => null,
+            'max_number_of_files' => $this->maxFiles,
             // Image resolution restrictions:
             'max_width' => null,
             'max_height' => null,
@@ -225,12 +225,14 @@ class UploadHandler
     }
 	
 	protected function set_additional_file_properties($file) {
-        // TODO	
         $file->deleteUrl = $this->options['script_url']
             //.$this->get_query_separator($this->options['script_url'])
             //.$this->get_singular_param_name()
             //.'='
             .rawurlencode($file->name);
+		if ($this->maxFiles != null) {
+			$file->deleteUrl .= '/'.$this->maxFiles;
+		}
         $file->deleteType = $this->options['delete_type'];
         if ($file->deleteType !== 'DELETE') {
             $file->deleteUrl .= '&_method=DELETE';
@@ -455,7 +457,7 @@ class UploadHandler
             $file->error = $this->get_error_message('min_file_size');
             return false;
         }
-        if (is_int($this->options['max_number_of_files']) && (
+		if (is_int($this->options['max_number_of_files']) && (
                 $this->count_file_objects() >= $this->options['max_number_of_files'])
             ) {
             $file->error = $this->get_error_message('max_number_of_files');

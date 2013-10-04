@@ -10,7 +10,9 @@ File bundle for use with Symfony2.
 
 # Add following in the BeckJonathanFileBundle:File:file.html.php template (the hidden input field must contain the upload folder for the files):
 # {{ file_upload|raw }}
-# <input type="hidden" id="hidden-file-folder" value="downloads">
+# <input type="hidden" id="hidden-file-folder" value="downloads"> -> This option is required.
+
+# <input type="hidden" id="hidden-max-files" value="2"> -> This option is optional.
 
 # Make sure you add 'php' to the framework->templating->engines setting in the app/config/config.yml file.
 

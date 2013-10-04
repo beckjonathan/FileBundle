@@ -16,9 +16,17 @@ $(function () {
 	// Get the folder where the files must be stored
 	var fileFolder = $("#hidden-file-folder").val();
 	
+	var url = '/admin/file-upload/' + fileFolder;
+	
+	if ($("#hidden-max-files").size() > 0) {
+		var maxFiles = $("#hidden-max-files").val();
+		url += '/null/' + maxFiles;
+	}
+	
+	
 	// Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
-       	url: '/admin/file-upload/' + fileFolder
+       	url: url
     });
 
     if (window.location.hostname === 'blueimp.github.io') {
@@ -31,7 +39,7 @@ $(function () {
             disableImageResize: /Android(?!.*Chrome)|Opera/
                 .test(window.navigator.userAgent),
             maxFileSize: 5000000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|GIF|JPE?G|PNG)$/i
         });
         // Upload server status check for browsers with CORS support:
         if ($.support.cors) {
