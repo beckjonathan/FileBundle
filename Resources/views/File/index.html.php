@@ -1,15 +1,4 @@
-<?php $baseUrl = $this->container->getParameter('base_url'); ?>
-
-<!-- Bootstrap styles -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-<!-- Font Awesome icons -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-<!-- blueimp Gallery styles -->
-<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-<link rel="stylesheet" href="<?php echo $baseUrl; ?>web/bundles/beckjonathanfile/css/vendor/jquery.fileupload-ui.css">
-
-<div class="container">
+<div class="file-container">
 	<div class="row">
         <div class="col-12">
             <!-- The file upload form used as target for the file upload widget -->
@@ -132,10 +121,4 @@
         </td>
     </tr>
 {% } %}
-</script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="<?php echo $baseUrl; ?>web/bundles/beckjonathanfile/js/plugins.js"></script>
-<script src="<?php echo $baseUrl; ?>web/bundles/beckjonathanfile/js/main.js"></script>
-<script>
-	var baseUrl = <?php echo $baseUrl; ?>;
 </script>

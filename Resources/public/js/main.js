@@ -13,10 +13,12 @@
 /*global $, window, blueimp */
 
 $(function () {
-    // Initialize the jQuery File Upload widget:
+	// Get the folder where the files must be stored
+	var fileFolder = $("#hidden-file-folder").val();
+	
+	// Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
-       	url: '/symfony/web/app_dev.php/file-upload'
-        //url: '/symfony/php/'
+       	url: '/admin/file-upload/' + fileFolder
     });
 
     if (window.location.hostname === 'blueimp.github.io') {

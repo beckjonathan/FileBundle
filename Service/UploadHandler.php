@@ -27,9 +27,19 @@ class UploadHandler
     );
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
+        $scriptUrl = $this->get_full_url().'/admin/file-upload/';
+		$uploadDir = dirname($this->get_server_var('SCRIPT_FILENAME')).'/../web/uploads/';
+		
+		// Get the name of the folder where the files must be stored
+		if (isset($_GET['file_folder'])) {
+			$fileFolder = $_GET['file_folder'];
+			$scriptUrl .= $fileFolder.'/';
+			$uploadDir .= $fileFolder.'/';
+		}
+		
         $this->options = array(
-            'script_url' => $this->get_full_url().'/app_dev.php/file-upload/',
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/../web/uploads/',
+            'script_url' => $scriptUrl,
+            'upload_dir' => $uploadDir,
             'upload_url' => $this->get_full_url().'/../web/uploads/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
@@ -215,6 +225,7 @@ class UploadHandler
     }
 	
 	protected function set_additional_file_properties($file) {
+        // TODO	
         $file->deleteUrl = $this->options['script_url']
             //.$this->get_query_separator($this->options['script_url'])
             //.$this->get_singular_param_name()
@@ -781,7 +792,7 @@ class UploadHandler
     }
 
     protected function get_singular_param_name() {
-        return substr($this->options['param_name'], 0, -1);
+    	return substr($this->options['param_name'], 0, -1);
     }
 
     protected function get_file_name_param() {
@@ -980,5 +991,4 @@ class UploadHandler
         }
         return $this->generate_response($response, $print_response);
     }
-
 }
