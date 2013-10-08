@@ -1,3 +1,7 @@
 beck_jonathan_file_upload:
-    pattern:  /admin/file-upload/{fileFolder}/{fileName}/{maxFiles}
-    defaults: { _controller: BeckJonathanFileBundle:File:upload, fileFolder: null, fileName: null, maxFiles: null }
+    pattern:  /admin/file-upload/{fileFolder}/{fileName}/{maxFiles}/{settings}
+    defaults: { _controller: BeckJonathanFileBundle:File:upload, fileFolder: null, fileName: null, maxFiles: null, settings: null }
+   
+beck_jonathan_file_ajax_upload:
+    pattern:  /admin/file/ajax/upload/{uploadFolder}
+    defaults: { _controller: BeckJonathanFileBundle:File:ajaxUpload, uploadFolder: null }

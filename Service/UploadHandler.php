@@ -2,9 +2,13 @@
 
 namespace BeckJonathan\Bundle\FileBundle\Service;
 
+use Doctrine\ORM\EntityManager;
+
 class UploadHandler
 {
 	private $maxFiles;
+	private $settings;
+	private $em;
 	
     protected $options;
     // PHP File Upload error message codes:
@@ -28,7 +32,9 @@ class UploadHandler
         'min_height' => 'Image requires a minimum height'
     );
 
-    function __construct($options = null, $initialize = true, $error_messages = null) {
+    function __construct(EntityManager $em, $options = null, $initialize = true, $error_messages = null) {
+    	$this->em = $em;
+		
        	// Get the name of the folder where the files must be stored
 		$fileFolder = $_GET['file_folder'];
 		$scriptUrl = $this->get_full_url().'/admin/file-upload/'.$fileFolder.'/';
@@ -36,6 +42,9 @@ class UploadHandler
 		
 		// Add the maxFiles parameter if it exists
 		$this->maxFiles = (isset($_GET['max_files'])) ? (int)$_GET['max_files'] : null;
+		$this->settings = (isset($_GET['settings'])) ? $_GET['settings'] : null;
+		
+		//echo '$maxFiles: '.$this->maxFiles;
 		
         $this->options = array(
             'script_url' => $scriptUrl,
@@ -110,7 +119,7 @@ class UploadHandler
                     'jpeg_quality' => 80
                 ),
                 */
-                'thumbnail' => array(
+                /*'thumbnail' => array(
                     // Uncomment the following to use a defined directory for the thumbnails
                     // instead of a subdirectory based on the version identifier.
                     // Make sure that this directory doesn't allow execution of files if you
@@ -123,7 +132,7 @@ class UploadHandler
                     //'crop' => true,
                     'max_width' => 80,
                     'max_height' => 80
-                )
+                )*/
             )
         );
         if ($options) {
@@ -686,7 +695,8 @@ class UploadHandler
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
             $index = null, $content_range = null) {
         $file = new \stdClass();
-        $file->name = $this->get_file_name($name, $type, $index, $content_range);
+		// Remove the spaces from the file name
+        $file->name = str_replace(" ", "", $this->get_file_name($name, $type, $index, $content_range));
         $file->size = $this->fix_integer_overflow(intval($size));
         $file->type = $type;
         if ($this->validate($uploaded_file, $file, $error, $index)) {
@@ -707,7 +717,7 @@ class UploadHandler
                         FILE_APPEND
                     );
                 } else {
-                    move_uploaded_file($uploaded_file, $file_path);
+                	move_uploaded_file($uploaded_file, $file_path);
                 }
             } else {
                 // Non-multipart uploads (PUT method support)
@@ -733,6 +743,18 @@ class UploadHandler
                 }
             }
             $this->set_additional_file_properties($file);
+			
+			if ($this->settings == "infoboekje") {
+				// Change the url in the database
+				$infoboekje = $this->em->getRepository('BeckJonathanCMSBundle:Download')->findOneByName("infoboekje");
+				$infoboekje->setUrl($file->name);
+				$this->em->flush();
+			} else if ($this->settings == "huurcontract") {
+				// Change the url in the database
+				$huurcontract = $this->em->getRepository('BeckJonathanCMSBundle:Download')->findOneByName("huurcontract");
+				$huurcontract->setUrl($file->name);
+				$this->em->flush();
+			}
         }
         return $file;
     }

@@ -15,14 +15,23 @@
 $(function () {
 	// Get the folder where the files must be stored
 	var fileFolder = $("#hidden-file-folder").val();
+	var url = '/admin/file-upload/' + fileFolder + '/null';
 	
-	var url = '/admin/file-upload/' + fileFolder;
-	
+	// Check whether a number is added to define the max values
 	if ($("#hidden-max-files").size() > 0) {
 		var maxFiles = $("#hidden-max-files").val();
-		url += '/null/' + maxFiles;
+		url += '/' + maxFiles;
+	} else {
+		url += '/null';
 	}
 	
+	// Check whether settings are defined
+	if ($("#hidden-settings").size() > 0) {
+		var settings = $("#hidden-settings").val();
+		url += '/' + settings;
+	} else {
+		url += '/null';
+	}
 	
 	// Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
