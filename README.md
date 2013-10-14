@@ -1,35 +1,34 @@
-==========
-FileBundle
-==========
+#BeckJonathanFileBundle
 
-File bundle for use with Symfony2.
+##Overview
 
-# This Bundle is a conversion from the following plugin: http://blueimp.github.io/jQuery-File-Upload/
+This bundle allows you to easily add files to a web application with the use of Ajax.
 
-# 'file_upload' => $this->renderView('BeckJonathanFileBundle:File:file.html.php'),
+This Bundle is a conversion from the following plugin: `http://blueimp.github.io/jQuery-File-Upload/`.
 
-# Add following in the BeckJonathanFileBundle:File:file.html.php template (the hidden input field must contain the upload folder for the files):
-# {{ file_upload|raw }}
-# <input type="hidden" id="hidden-file-folder" value="downloads"> -> This option is required.
-# Make sure the upload folders are created in the uploads folder (create the uploads folder if it's not existing yet).
+Features include:
 
-# <input type="hidden" id="hidden-max-files" value="2"> -> This option is optional.
-# <input type="hidden" id="hidden-settings" value="testen123"> -> This option is optional, settings can be
-# added to this input file, like if you want to make updates to the database etc.
+- Add a single file in a form.
+- Add multiple files at once.
 
-# Make sure you add 'php' to the framework->templating->engines setting in the app/config/config.yml file.
+The following files can be added:
 
-# Make sure you add the following files to the other stylesheets:
-# <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-# '@BeckJonathanFileBundle/Resources/public/css/vendor/jquery.fileupload-ui.css'
-# '@BeckJonathanFileBundle/Resources/public/css/main.css'
+```
+pdf, doc, txt, png, jpg, gif
+```
 
-# Make sure you add the following files to the other scripts:
-# '@BeckJonathanFileBundle/Resources/public/js/plugins.js'
-# '@BeckJonathanFileBundle/Resources/public/js/main.js'
+##Documentation
 
-# De settings aanpassen onderaan de functie handle_file_upload() in de file UploadHandler.php
+The bulk of the documentation is stored in the file `Resources/doc/index.md` in this bundle:
 
-# Bij het gebruik van ajaxFileUpload ook een name="" waarde meegeven aan het inputveld. 
-# Er kan ook worden gespecifieerd in welke folder je de file wil uploaden, via:
-# <input type="hidden" id="hidden-upload-folder" value="activities">
+[Read the Documentation](https://github.com/beckjonathan/FileBundle/blob/master/Resources/doc/index.md)
+
+##Installation
+
+All the installation instructions are located in  the documentation.
+
+##License
+
+This bundle is under the MIT license. The license is stored in the file `Resources/meta/LICENSE` in this bundle:
+
+[Read the License](https://github.com/beckjonathan/FileBundle/blob/master/Resources/meta/LICENSE)

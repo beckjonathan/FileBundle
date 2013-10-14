@@ -744,17 +744,7 @@ class UploadHandler
             }
             $this->set_additional_file_properties($file);
 			
-			if ($this->settings == "infoboekje") {
-				// Change the url in the database
-				$infoboekje = $this->em->getRepository('BeckJonathanCMSBundle:Download')->findOneByName("infoboekje");
-				$infoboekje->setUrl($file->name);
-				$this->em->flush();
-			} else if ($this->settings == "huurcontract") {
-				// Change the url in the database
-				$huurcontract = $this->em->getRepository('BeckJonathanCMSBundle:Download')->findOneByName("huurcontract");
-				$huurcontract->setUrl($file->name);
-				$this->em->flush();
-			}
+			// Add here the functionality that runs when a new file was added
         }
         return $file;
     }
