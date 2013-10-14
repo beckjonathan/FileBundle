@@ -31,14 +31,14 @@
 }
 .progress-animated .progress-bar,
 .progress-animated .bar {
-  background: url(../img/progressbar.gif) !important;
+  background: url(../bundles/beckjonathanfile/css/img/progressbar.gif) !important;
   filter: none;
 }
 .fileupload-loading {
   float: right;
   width: 32px;
   height: 32px;
-  background: url(../img/loading.gif) center no-repeat;
+  background: url(../bundles/beckjonathanfile/css/img/loading.gif) center no-repeat;
   background-size: contain;
   display: none;
 }
