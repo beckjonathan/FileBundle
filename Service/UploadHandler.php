@@ -52,10 +52,8 @@ class UploadHandler
 		$uploadDir = dirname($this->get_server_var('SCRIPT_FILENAME')).'/../web/uploads/'.$fileFolder.'/';
 		
 		// Add the maxFiles parameter if it exists
-		$this->maxFiles = (isset($_GET['max_files'])) ? (int)$_GET['max_files'] : null;
+		$this->maxFiles = (isset($_GET['max_files']) && $_GET['max_files'] != 0) ? (int)$_GET['max_files'] : null;
 		$this->settings = (isset($_GET['settings'])) ? $_GET['settings'] : null;
-		
-		//echo '$maxFiles: '.$this->maxFiles;
 		
         $this->options = array(
             'script_url' => $scriptUrl,
