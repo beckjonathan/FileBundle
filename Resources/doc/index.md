@@ -2,7 +2,7 @@
 
 ##Installation
 
-### Step 1: Download BeckJonathanCMSBundle using composer.
+### Step 1: Download BeckJonathanFileBundle using composer.
 
 Add BeckJonathanFileBundle to the file `/composer.json`:
 
