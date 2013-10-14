@@ -73,6 +73,13 @@ class FileController extends Controller
 			if ($uploadFolder) {
 				$path .= $uploadFolder.'/';
 			}
+			
+			// Check whether the folder already exists,
+			// if not create the folder
+			if (!file_exists($path)) {
+    			mkdir($path, 0777, true);
+			}
+			
 			$location = $path.$_FILES['image']['name']; 
 			move_uploaded_file($_FILES['image']['tmp_name'], $location); 
 			$msg = $location;
