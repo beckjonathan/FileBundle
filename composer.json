@@ -1,7 +1,7 @@
 {
     "name": "beckjonathan/file-bundle",
     "type": "symfony-bundle",
-    "description": "File bundle for use with Symfony2",
+    "description": "File bundle for use with Symfony2.",
     "keywords": ["file", "bundle"],
     "homepage": "https://github.com/beckjonathan/FileBundle",
     "license": "MIT",

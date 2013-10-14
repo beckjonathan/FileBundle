@@ -9,7 +9,7 @@ Add BeckJonathanFileBundle to the file `/composer.json`:
 ```json
 {
     "require": {
-        "beckjonathan/cms-bundle": "dev-master"
+        "beckjonathan/file-bundle": "dev-master"
     }
 }
 ```
@@ -17,7 +17,7 @@ Add BeckJonathanFileBundle to the file `/composer.json`:
 Now tell composer to download the bundle by running the command:
 
 ```
-$ php composer.phar update beckjonathan/cms-bundle
+$ php composer.phar update beckjonathan/file-bundle
 ```
 
 Composer will install the bundle to your project's `/vendor/beckjonathan` directory.
@@ -110,7 +110,7 @@ Add following code to the template file in which you want to add the upload form
 **Note**
 
 The hidden input field with id `hidden-file-folder` contains the folder to which the files will be uploaded. 
-Make sure you create this folder an give it the correct write permissions.
+Make sure you create this folder and give it the correct write permissions.
 
 It's also possible to add following optional hidden input fields.
 

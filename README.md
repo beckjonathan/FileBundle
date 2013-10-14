@@ -25,7 +25,7 @@ The bulk of the documentation is stored in the file `Resources/doc/index.md` in 
 
 ##Installation
 
-All the installation instructions are located in  the documentation.
+All the installation instructions are located in the documentation.
 
 ##License
 
