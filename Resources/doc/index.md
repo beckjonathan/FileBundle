@@ -146,7 +146,7 @@ Following scripts must be added:
 
 ####Step 1: Add file input field.
 
-Add an file input field and define the name value. Make sure this value is similar with the value of variable `$fileElementName` in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Controller/FileController.php`.
+Add a file input field and define the name value. Make sure this value is similar with the value of variable `$fileElementName` in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Controller/FileController.php`.
 
 ```html
 <input type="file" name="image">
