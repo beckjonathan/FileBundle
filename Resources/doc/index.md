@@ -149,7 +149,7 @@ Following scripts must be added:
 Add a file input field and define the name value. Make sure this value is similar with the value of variable `$fileElementName` in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Controller/FileController.php`.
 
 ```html
-<input type="file" name="image">
+<input type="file" name="image" id="image">
 ```
 
 ####Step 2: Add the script.
