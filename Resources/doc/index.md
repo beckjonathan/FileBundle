@@ -63,7 +63,7 @@ framework:
 
 ###Step 5: Add extra upload functions.
 
-Some code can be run after a file is uploaded. This code can be edited in the file `/vendor/beckjonathan/cms-bundle/BeckJonathan/Bundle/FileBundle/Service/UploadHandler.php` at the bottom of the function `handle_file_upload()`:
+Some code can be run after a file is uploaded. This code can be edited in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Service/UploadHandler.php` at the bottom of the function `handle_file_upload()`:
 
 ```php
 		// ...
@@ -115,7 +115,7 @@ Make sure you create this folder and give it the correct write permissions.
 It's also possible to add following optional hidden input fields.
 
 - `<input type="hidden" id="hidden-max-files" value="2">`: Specify the maximum amount of files which can be uploaded.
-- `<input type="hidden" id="hidden-settings" value="">`: This can contain a setting, this settings can be specified in the file `/vendor/beckjonathan/cms-bundle/BeckJonathan/Bundle/FileBundle/Service/UploadHandler.php`.
+- `<input type="hidden" id="hidden-settings" value="">`: This can contain a setting, this settings can be specified in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Service/UploadHandler.php`.
 
 ####Step 3: Add the stylesheets.
 
@@ -136,7 +136,7 @@ Following scripts must be added:
 
 ####Step 1: Add file input field.
 
-Add an file input field and define the name value. Make sure this value is similar with the value of variable `$fileElementName` in the file `/vendor/beckjonathan/cms-bundle/BeckJonathan/Bundle/FileBundle/Controller/FileController.php`.
+Add an file input field and define the name value. Make sure this value is similar with the value of variable `$fileElementName` in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Controller/FileController.php`.
 
 ```html
 <input type="file" name="image">
