@@ -61,7 +61,17 @@ framework:
         engines: ['php']
 ```
 
-###Step 5: Add extra upload functions.
+###Step 5: Add routing.
+
+Add the following to the file `/app/config/routing.yml`: 
+
+```yaml
+beck_jonathan_file:
+    resource: "@BeckJonathanFileBundle/Resources/config/routing.yml"
+    prefix:   /
+```
+
+###Step 6: Add extra upload functions.
 
 Some code can be run after a file is uploaded. This code can be edited in the file `/vendor/beckjonathan/file-bundle/BeckJonathan/Bundle/FileBundle/Service/UploadHandler.php` at the bottom of the function `handle_file_upload()`:
 
