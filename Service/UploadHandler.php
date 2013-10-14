@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * jQuery File Upload Plugin 5.32.2
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
 namespace BeckJonathan\Bundle\FileBundle\Service;
 
 use Doctrine\ORM\EntityManager;

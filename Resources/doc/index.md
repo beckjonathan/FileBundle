@@ -122,15 +122,15 @@ It's also possible to add following optional hidden input fields.
 Following stylesheets must be added:
 
 - `http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css`
-- `BeckJonathanFileBundle/Resources/public/css/vendor/jquery.fileupload-ui.css`
-- `BeckJonathanFileBundle/Resources/public/css/main.css`
+- `BeckJonathanFileBundle/Resources/public/css/vendor/jquery.fileupload-ui.min.css`
+- `BeckJonathanFileBundle/Resources/public/css/main.min.css`
 
 #### Step 4: Add the scripts.
 
 Following scripts must be added:
 
-- `BeckJonathanFileBundle/Resources/public/js/plugins.js`
-- `BeckJonathanFileBundle/Resources/public/js/main.js`
+- `BeckJonathanFileBundle/Resources/public/js/plugins.min.js`
+- `BeckJonathanFileBundle/Resources/public/js/main.min.js`
 
 ###2. Single file uploader
 
@@ -148,7 +148,7 @@ Add an file input field and define the name value. Make sure this value is simil
 {% block javascripts %}
 	{{ parent() }}
 	
-   	{% javascripts '@BeckJonathanFileBundle/Resources/public/js/vendor/ajaxfileupload.js' %}
+   	{% javascripts '@BeckJonathanFileBundle/Resources/public/js/vendor/ajaxfileupload.min.js' %}
 	    <script src="{{ asset_url }}"></script>
 	{% endjavascripts %}
 {% endblock %}
