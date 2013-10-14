@@ -4,7 +4,7 @@
 
 This bundle allows you to easily add files to a web application with the use of Ajax.
 
-This Bundle is a conversion from the following plugin: `http://blueimp.github.io/jQuery-File-Upload/`.
+This Bundle is a conversion from the following plugin: [jQuery File Upload](http://blueimp.github.io/jQuery-File-Upload/).
 
 Features include:
 

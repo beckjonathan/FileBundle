@@ -75,11 +75,21 @@ Some code can be run after a file is uploaded. This code can be edited in the fi
 }
 ```
 
+**Note**
+
+This code will only run if you make use of the multiple file uploader NOT the SINGLE file uploader. 
+
 ##How does it work?
 
-Complete following steps to be able to upload files.
+There are two ways to use the FileBundle:
 
-### Step 1: Add the template code to the controller.
+- 1. Multiple file uploader
+
+- 2. Single file uploader
+
+###1. Multiple file uploader
+
+#### Step 1: Add the template code to the controller.
 
 ```php
 return $this->render('BeckJonathanCMSBundle:CMS/Example:index.html.twig', array(
@@ -88,7 +98,7 @@ return $this->render('BeckJonathanCMSBundle:CMS/Example:index.html.twig', array(
 ));
 ```
 
-### Step 2: Add the template code to the php template.
+#### Step 2: Add the template code to the php template.
 
 Add following code to the template file in which you want to add the upload form:
 
@@ -107,7 +117,7 @@ It's also possible to add following optional hidden input fields.
 - `<input type="hidden" id="hidden-max-files" value="2">`: Specify the maximum amount of files which can be uploaded.
 - `<input type="hidden" id="hidden-settings" value="">`: This can contain a setting, this settings can be specified in the file `src/BeckJonathan/Bundle/FileBundle/Service/UploadHandler.php`.
 
-### Step 3: Add the stylesheets.
+#### Step 3: Add the stylesheets.
 
 Following stylesheets must be added:
 
@@ -115,22 +125,40 @@ Following stylesheets must be added:
 - `BeckJonathanFileBundle/Resources/public/css/vendor/jquery.fileupload-ui.css`
 - `BeckJonathanFileBundle/Resources/public/css/main.css`
 
-### Step 4: Add the scripts.
+#### Step 4: Add the scripts.
 
 Following scripts must be added:
 
 - `BeckJonathanFileBundle/Resources/public/js/plugins.js`
 - `BeckJonathanFileBundle/Resources/public/js/main.js`
 
+###2. Single file uploader
 
+#### Step 1: Add file input field.
 
+Add an file input field and define the name value. Make sure this value is similar with the value of variable `$fileElementName` in the file `/src/BeckJonathan/Bundle/FileBundle/Controller/FileController.php`.
 
+```html
+<input type="file" name="image">
+```
 
+#### Step 2: Add the script.
 
+```twig
+{% block javascripts %}
+	{{ parent() }}
+	
+   	{% javascripts '@BeckJonathanFileBundle/Resources/public/js/vendor/ajaxfileupload.js' %}
+	    <script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+```
+#### Step 3: Define upload folder.
 
+It's possible to define an upload folder to add following hidden input field:
 
+```html
+<input type="hidden" id="hidden-upload-folder" value="activities">
+```
 
-
-# Bij het gebruik van ajaxFileUpload ook een name="" waarde meegeven aan het inputveld. 
-# Er kan ook worden gespecifieerd in welke folder je de file wil uploaden, via:
-# <input type="hidden" id="hidden-upload-folder" value="activities">
+Make sure you create this folder an give it the correct write permissions.
