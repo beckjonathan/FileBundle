@@ -69,7 +69,7 @@ Some code can be run after a file is uploaded. This code can be edited in the fi
 		// ...
 		$this->set_additional_file_properties($file);
 		
-		// Add here the functionality that runs when a new file was added
+		// Add here the functionality that runs when a new file is added
     }
     return $file;
 }
